@@ -1,5 +1,5 @@
 # NNSA-geospatial-analysis
-<img src="https://img.shields.io/badge/Python-3.8-blue"><img src="https://img.shields.io/github/license/jshinm/nnsa-geospatial-analysis">
+<img src="https://img.shields.io/badge/Python-3.8-blue"> <img src="https://img.shields.io/github/license/jshinm/nnsa-geospatial-analysis">
 
 # Overview
 Geospatial visualization and analysis of Fukushima datasets created by NNSA.
@@ -9,7 +9,7 @@ Some sections of the notebooks use plotly for interactive visualization which re
 
 - NNSA Geospatial Analysis ([nbviewer](https://nbviewer.org/github/jshinm/NNSA-geospatial-analysis/blob/main/NNSA-geospatial-analysis.ipynb))
 
-# Todos
+# Future Updates
 - analysis notebook (unsupervised methods)
 - ML predictive analytics
 - aws integration
