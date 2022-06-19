@@ -35,10 +35,10 @@ class dataLoader:
             self.data['fuku-at-sea']['Time'] = self.data['fuku-at-sea'].apply(lambda x: datetime.strptime(x['Time'], dformat), axis=1)
             self.data['fuku-at-sea']['GCNORM'] = self.data['fuku-at-sea']['GCNORM'].astype(float)
         except Exception as e:
-            print(e)
+            print(f'Preprocessing skipped for {self.data.keys()[0]}')
 
         try:
             # preprocess fukushima dataset #2
             self.data['fuku-iodine'].iloc[:,0] = self.data['fuku-iodine'].iloc[:,0].astype(float)
         except Exception as e:
-            print(e)
+            print(f'Preprocessing skipped for {self.data.keys()[1]}')
