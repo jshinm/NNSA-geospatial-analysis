@@ -1,6 +1,9 @@
 files:
-  fuku-at-sea:
+  name:
+    - fuku-at-sea
+    - fuku-iodine
+    - fuku-nnsa-response
+  url:
     - https://energy.gov/sites/prod/files/2013/10/f3/AMS%20C12%20Sea%20Data.kmz
-  fuku-iodine:
     - https://energy.gov/sites/prod/files/2014/01/f6/Iodine%20Deposition%20from%20Early%20Aerial%20Surveys.kmz
-    
+    - https://energy.gov/sites/prod/files/CumulativeAMS21Mar2011.kmz
