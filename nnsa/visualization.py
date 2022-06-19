@@ -1,5 +1,7 @@
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.io as pio
+pio.renderers.default = "plotly_mimetype+notebook_connected"
 
 def render_map(df, color, size, title, zoom_lat, zoom_lon, zoom=False):
 
