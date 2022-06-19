@@ -16,20 +16,29 @@ class dataLoader:
         for name, url in f['files'].items():
             self.dict[name] = url
 
-    def load_data(self, preprocess=False):
+    def load_data(self, preprocess=False, only_load=None):
         self.load_urls()
 
-        for name, url in zip(self.dict['name'], self.dict['url']):
-            self.data[name] = parse_kmz(url)
+        for i, (name, url) in enumerate(zip(self.dict['name'], self.dict['url'])):
+            if only_load != i:
+                pass
+            else:
+                self.data[name] = parse_kmz(url)
 
         if preprocess:
             self.preprocess()
 
     def preprocess(self):
-        # preprocess fukushima dataset #1
-        dformat = '%m/%d/%Y %H:%M'
-        self.data['fuku-at-sea']['Time'] = self.data['fuku-at-sea'].apply(lambda x: datetime.strptime(x['Time'], dformat), axis=1)
-        self.data['fuku-at-sea']['GCNORM'] = self.data['fuku-at-sea']['GCNORM'].astype(float)
+        try:
+            # preprocess fukushima dataset #1
+            dformat = '%m/%d/%Y %H:%M'
+            self.data['fuku-at-sea']['Time'] = self.data['fuku-at-sea'].apply(lambda x: datetime.strptime(x['Time'], dformat), axis=1)
+            self.data['fuku-at-sea']['GCNORM'] = self.data['fuku-at-sea']['GCNORM'].astype(float)
+        except Exception as e:
+            print(e)
 
-        # preprocess fukushima dataset #2
-        self.data['fuku-iodine'].iloc[:,0] = self.data['fuku-iodine'].iloc[:,0].astype(float)
+        try:
+            # preprocess fukushima dataset #2
+            self.data['fuku-iodine'].iloc[:,0] = self.data['fuku-iodine'].iloc[:,0].astype(float)
+        except Exception as e:
+            print(e)
