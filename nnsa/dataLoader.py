@@ -19,8 +19,11 @@ class dataLoader:
     def load_data(self, preprocess=False, only_load=None):
         self.load_urls()
 
+        if isinstance(only_load, int):
+            only_load = list(only_load)
+
         for i, (name, url) in enumerate(zip(self.dict['name'], self.dict['url'])):
-            if only_load is not None and only_load != i:
+            if only_load is not None and i not in only_load:
                 pass
             else:
                 self.data[name] = parse_kmz(url)
@@ -44,3 +47,10 @@ class dataLoader:
             self.data['fuku-iodine'].iloc[:,0] = self.data['fuku-iodine'].iloc[:,0].astype(float)
         except Exception as e:
             print(f'Preprocessing skipped for {keys[1]}')
+
+        try:
+            # preprocess fukushima dataset #3
+            self.data['fuku-nnsa-response'].rename(columns={'lat':'Latitude', 'long':'Longitude'}, inplace=True)
+            self.data['fuku-nnsa-response']['Exposure'] = self.data['fuku-nnsa-response']['Exposure'].astype(float)
+        except Exception as e:
+            print(f'Preprocessing skipped for {keys[2]}')
