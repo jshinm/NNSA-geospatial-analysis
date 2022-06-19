@@ -1,6 +1,5 @@
 # NNSA-geospatial-analysis
-<img src="https://img.shields.io/badge/Python-3.8-blue">
-<img src="https://img.shields.io/github/license/jshinm/nnsa-geospatial-analysis">
+<img src="https://img.shields.io/badge/Python-3.8-blue"><img src="https://img.shields.io/github/license/jshinm/nnsa-geospatial-analysis">
 
 # Overview
 Geospatial visualization and analysis of Fukushima datasets created by NNSA.
