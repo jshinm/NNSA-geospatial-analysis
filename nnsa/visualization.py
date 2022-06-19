@@ -40,7 +40,7 @@ def render_map(df, color, size, title, zoom_lat, zoom_lon, zoom=False):
 
     if zoom:
         fig.update_layout(
-        title=title+'<br>Zoomed in',
+        title=title+' (Zoomed In)',
         geo={
             'center': {'lat':zoom_lat, 'lon': zoom_lon},
             'projection_scale': 350
