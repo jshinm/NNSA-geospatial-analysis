@@ -1,3 +1,6 @@
+import plotly.express as px
+import plotly.graph_objects as go
+
 def render_map(df, color, size, title, zoom_lat, zoom_lon, zoom=False):
     fig = go.Figure(go.Scattergeo(
         lat=df.Latitude,
