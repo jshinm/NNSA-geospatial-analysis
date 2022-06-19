@@ -20,7 +20,7 @@ class dataLoader:
         self.load_urls()
 
         for i, (name, url) in enumerate(zip(self.dict['name'], self.dict['url'])):
-            if only_load != i:
+            if only_load is not None and only_load != i:
                 pass
             else:
                 self.data[name] = parse_kmz(url)
@@ -29,16 +29,18 @@ class dataLoader:
             self.preprocess()
 
     def preprocess(self):
+        keys = list(self.data.keys())
+
         try:
             # preprocess fukushima dataset #1
             dformat = '%m/%d/%Y %H:%M'
             self.data['fuku-at-sea']['Time'] = self.data['fuku-at-sea'].apply(lambda x: datetime.strptime(x['Time'], dformat), axis=1)
             self.data['fuku-at-sea']['GCNORM'] = self.data['fuku-at-sea']['GCNORM'].astype(float)
         except Exception as e:
-            print(f'Preprocessing skipped for {self.data.keys()[0]}')
+            print(f'Preprocessing skipped for {keys[0]}')
 
         try:
             # preprocess fukushima dataset #2
             self.data['fuku-iodine'].iloc[:,0] = self.data['fuku-iodine'].iloc[:,0].astype(float)
         except Exception as e:
-            print(f'Preprocessing skipped for {self.data.keys()[1]}')
+            print(f'Preprocessing skipped for {keys[1]}')
