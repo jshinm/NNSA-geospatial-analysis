@@ -11,9 +11,11 @@ National Nuclear Security Administration (NNSA) published 3 datasets that involv
 Some sections of the notebooks use plotly for interactive visualization which renders properly in nbviewer.
 
 - NNSA Geospatial Visual Analysis ([nbviewer](https://nbviewer.org/github/jshinm/NNSA-geospatial-analysis/blob/main/NNSA-geospatial-visual-analysis.ipynb))
-    - <img src="img/1st-notebook.png" width=80%>
+    
+    <img src="img/1st-notebook.png" width=80%>
 - NNSA Geospatial Predictive Analytic + EDA ([notebook](https://github.com/jshinm/NNSA-geospatial-analysis/blob/main/NNSA-geospatial-predictive-analytic.ipynb))
-    - <img src="img/2nd-notebook.png" width=80%>
+    
+    <img src="img/2nd-notebook.png" width=80%>
 
 # Data Catalogs
 - https://catalog.data.gov/dataset/us-doe-nnsa-response-to-2011-fukushima-incident-at-sea-aerial-data
