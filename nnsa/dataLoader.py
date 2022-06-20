@@ -32,25 +32,25 @@ class dataLoader:
             self.preprocess()
 
     def preprocess(self):
-        keys = list(self.data.keys())
 
         try:
             # preprocess fukushima dataset #1
             dformat = '%m/%d/%Y %H:%M'
             self.data['fuku-at-sea']['Time'] = self.data['fuku-at-sea'].apply(lambda x: datetime.strptime(x['Time'], dformat), axis=1)
-            self.data['fuku-at-sea']['GCNORM'] = self.data['fuku-at-sea']['GCNORM'].astype(float)
-        except Exception as e:
-            print(f'Preprocessing skipped for {keys[0]}')
+            self.data['fuku-at-sea'].iloc[:,1:] = self.data['fuku-at-sea'].iloc[:,1:].astype(float)
+            self.data['fuku-at-sea']['NumDet'] = self.data['fuku-at-sea']['NumDet'].astype(int)
+        except (IndexError, ValueError, KeyError):
+            print(f'Preprocessing skipped for [fuku-at-sea]')
 
         try:
             # preprocess fukushima dataset #2
             self.data['fuku-iodine'].iloc[:,0] = self.data['fuku-iodine'].iloc[:,0].astype(float)
-        except Exception as e:
-            print(f'Preprocessing skipped for {keys[1]}')
+        except (IndexError, ValueError, KeyError):
+            print(f'Preprocessing skipped for [fuku-iodine]')
 
         try:
             # preprocess fukushima dataset #3
             self.data['fuku-nnsa-response'].rename(columns={'lat':'Latitude', 'long':'Longitude'}, inplace=True)
             self.data['fuku-nnsa-response']['Exposure'] = self.data['fuku-nnsa-response']['Exposure'].astype(float)
-        except Exception as e:
-            print(f'Preprocessing skipped for {keys[2]}')
+        except (IndexError, ValueError, KeyError):
+            print(f'Preprocessing skipped for [fuku-nnsa-response]')
