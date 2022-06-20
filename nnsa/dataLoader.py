@@ -39,6 +39,7 @@ class dataLoader:
             self.data['fuku-at-sea']['Time'] = self.data['fuku-at-sea'].apply(lambda x: datetime.strptime(x['Time'], dformat), axis=1)
             self.data['fuku-at-sea'].iloc[:,1:] = self.data['fuku-at-sea'].iloc[:,1:].astype(float)
             self.data['fuku-at-sea']['NumDet'] = self.data['fuku-at-sea']['NumDet'].astype(int)
+            self.data['fuku-at-sea'].drop(['NumDet'], axis=1, inplace=True)
         except (IndexError, ValueError, KeyError):
             print(f'Preprocessing skipped for [fuku-at-sea]')
 
