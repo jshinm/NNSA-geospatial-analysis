@@ -27,7 +27,7 @@ def render_map(df, color, size, title, zoom_lat, zoom_lon, zoom=False):
 
     fig.update_layout(
         title=title,
-        width=1300,
+        width=900,
         height=700,
         geo={
             'showland': True,
